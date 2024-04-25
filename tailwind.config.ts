@@ -1,17 +1,21 @@
-import type { Config } from "tailwindcss";
+// tailwind.config.cjs
 
-export default {
-  content: ["./src/**/*.{html,js,jsx,ts,tsx}"],
+// this is the path in node_modules where the components are located
+const { ComponentsContentPath } = require("@yext/search-ui-react");
+
+module.exports = {
+  content: [
+    "./src/**/*.{html,js,jsx,ts,tsx}",
+    // this will apply the Tailwind styles to the components
+    ComponentsContentPath,
+  ],
   theme: {
     extend: {
       colors: {
         orange: "#ff9500",
         "dark-orange": "#db8000",
       },
-      scale: {
-        1.02: "1.02",
-      },
     },
   },
   plugins: [],
-} satisfies Config;
+};
